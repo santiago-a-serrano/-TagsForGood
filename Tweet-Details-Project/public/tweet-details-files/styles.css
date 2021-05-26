@@ -23,13 +23,15 @@ body{
 }
 .blurb-flex-box {
     display: flex;
+    margin: 0px;
 }
 .blurb-image-container {
     margin: 5px;
 }
 .blurb-text-container {
     padding: 5px;
-    font-size: 14px;
+    padding-top: 14px;
+    font-size: 12px;
     color: white;
 }
 .logo-image {
@@ -47,16 +49,61 @@ body{
     padding: 5px;
 }
 .campaign-image-container {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .campaign-image {
     opacity: 90%;
     border-radius: 10px;
-    height: 105px;
+    height: 130px;
     width: auto;
 }
-
-
+.button-styling {
+    background-color: #1DA1F2;
+    border: none;
+    border-radius: 29px;
+    padding: 10px;
+    width: 130px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.button-container {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.disclaimer-container {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.disclaimer-text {
+    font-size: 10px;
+}
+.sponsor {
+    margin-top: 18px;
+    text-align: right;
+}
+.sponsor-name {
+    float: right;
+    padding-left: 5px;
+}
+.sponsor-heading {
+    font-weight: bold;
+    font-size: 14px;
+}
+.sponsor-img {
+    border-radius: 20px;
+    height: 20px;
+    width: auto;
+}
+.slogan-box {
+    text-align: right;
+}
+.slogan-text {
+    font-size: 16px;
+    margin-bottom: 0px;
+    margin-top: 25px;
+}
 
 
 
