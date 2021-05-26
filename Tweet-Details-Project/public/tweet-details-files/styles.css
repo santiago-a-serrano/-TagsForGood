@@ -1,3 +1,4 @@
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -79,6 +80,7 @@ input::-webkit-search-results-decoration {
   padding-top: 0px;
   white-space: pre-wrap;
   word-wrap: break-word;
+
 }
 .css-bfa6kz {
   max-width: 100%;
