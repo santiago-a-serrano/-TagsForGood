@@ -1,6 +1,6 @@
 [
 	{
-		"hashtags": ["#StopAnimalCruelty", "#StopAnimalTesting"],
+		"hashtags": ["#ForNoAnimalCruelty", "#ForNoAnimalTesting"],
 		"text": "This campaign is raising funds and awareness towards animal abuse.",
 		"image": "./tweet-details-2_files/animal.jpg",
 		"sponsor": "@Starbucks",
@@ -9,7 +9,7 @@
 		"hashtagcolor": "#544943"
 	},
 	{
-		"hashtags": ["#SaveThePlanet"],
+		"hashtags": ["#ForSavingThePlanet", "ForSavingTheEnvironment"],
 		"text": "This campaign is raising funds and awareness towards the effects of climate change on the planet.",
 		"image": "./tweet-details-2_files/ice-pic.jpeg",
 		"sponsor": "@Tesla",
@@ -18,7 +18,7 @@
 		"hashtagcolor": "#3589b8"
 	},
 	{
-		"hashtags": ["#EndHunger", "#ZeroHunger"],
+		"hashtags": ["#ForEndingHunger", "#ForZeroHunger"],
 		"text": "Every person should be able to eat at least three times a day. Help us erradicate hunger now!",
 		"image": "./tweet-details-2_files/hunger.jpg",
 		"sponsor": "@McDonalds",
@@ -36,7 +36,7 @@
 		"hashtagcolor": "#d97e1e"
 	},
 	{
-		"hashtags": ["#MentalHealthAwareness", "#NoMoreSuicides"],
+		"hashtags": ["#ForMentalHealth", "#ForNoSuicides"],
 		"text": "What mental health needs is more sunlight, more candor, and more unashamed conversation. Help us now!",
 		"image": "./tweet-details-2_files/mentalhealth.jpg",
 		"sponsor": "@Twitter",
@@ -54,7 +54,7 @@
 		"hashtagcolor": "#d169b9"
 	},
 	{
-		"hashtags": ["#CovidRelief", "#Covid19Relief", "#CoronavirusRelief"],
+		"hashtags": ["#ForCovidRelief", "#ForCovid19Relief", "#ForCoronavirusRelief"],
 		"text": "This campaign is raising funds and awareness to help reduce the impact of Covid around the globe.",
 		"image": "./tweet-details-2_files/covid19.jpg",
 		"sponsor": "@Microsoft",
