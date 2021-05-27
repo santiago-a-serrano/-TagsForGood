@@ -11,17 +11,22 @@
   <script src="./tweet-details-2_files/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
 
-//----------------MAKE ARRAY WITH ALL FUNDRAISING HASHTAGS--------//
-var hashtags = [];
+//----------------MAKE ARRAYS WITH ALL CAMPAIGN RELEVANT DATA--------//
+var hashtags = []; //ALL campaign hashtags
+var tweetedHashtags = []; //Hashtags that appear on any tweet, retweet or reply
+var campaignTexts = [];
+var campaignImages = [];
 
 $.ajax({
 	url: '/campaigns'
 }).done( function(data) {
-	data.forEach(function(hashtagGroup)
+	data.forEach(function(campaign, campaignIndex)
 	{
-		hashtagGroup.hashtags.forEach(function(hashtag)
+		campaign.hashtags.forEach(function(hashtag)
 		{
 			hashtags.push(hashtag);
+			campaignTexts.push(campaign.text);
+			campaignImages.push(campaign.image);
 		})
 	})
   });
@@ -87,6 +92,24 @@ $.ajax({
     }   
   });
 
+
+//-------------PUT THE INFO OF THE "HASHTAGED" CAMPAIGN INTO THE EMBEDDED CONTAINER-----------------
+window.onload = function()
+{
+	var hashtagIndex = hashtags.indexOf(tweetedHashtags[0]);
+
+	var campTitleDiv = document.getElementById("title-with-hashtag");
+	var campTextDiv = document.getElementById("text-container");
+	var campImage = document.getElementById("campaign-image");
+
+	campTitleDiv.innerHTML = hashtags[hashtagIndex] + " Campaign";
+	campTextDiv.innerHTML = campaignTexts[hashtagIndex];
+	campImage.src = campaignImages[hashtagIndex];
+}
+
+
+
+
 //Returns the given string, but with code attached that turns green every hashtag from fundraising_hashtags.json it detects
 function makeHashtagsGreen(rawText)
 {
@@ -100,6 +123,7 @@ function makeHashtagsGreen(rawText)
 			{
 				href = "https://twitter.com/hashtag/" + word.substring(1) + "?src=hashtag_click";
 				word = "<a href=" + href + String.raw`" dir="ltr" role="link" data-focusable="true" class="css-4rbku5 css-18t94o4 css-16my406 green-tweet r-1loqt21 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0 plain-text">` + word + String.raw`</a>`;
+				tweetedHashtags.push(hashtag);
 			}
 		})
 
@@ -374,12 +398,12 @@ function makeHashtagsGreen(rawText)
 <div class="campaign-container">
 	<div class="main-flex-box">
 		<div class="flex-1">
-			<div class="title">#ClimateChange Campaign</div>
+			<div id ="title-with-hashtag" class="title">#ClimateChange Campaign</div>
 			<div class="blurb-flex-box">
 				<div class="blurb-image-container">
 					<img src="./tweet-details-2_files/tagsforgood-logo-white.png" class="logo-image">
 				</div>
-				<div class="blurb-text-container">
+				<div id="text-container" class="blurb-text-container">
 					This campaign is raising funds and awareness towards the affects of climate change on the planet.
 				</div>
 			</div>
@@ -395,7 +419,7 @@ function makeHashtagsGreen(rawText)
 		</div>
 		<div class="flex-2">
 			<div class="campaign-image-container">
-				<img src="./tweet-details-2_files/ice-pic.jpeg" class="campaign-image">
+				<img id = "campaign-image" src="./tweet-details-2_files/ice-pic.jpeg" class="campaign-image">
 			</div>
 
 			<div class="sponsor">
