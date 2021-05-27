@@ -18,6 +18,8 @@ var campaignTexts = [];
 var campaignImages = [];
 var sponsors = [];
 var sponsorImages = [];
+var hashtagColors = [];
+var backgroundColors = [];
 
 $.ajax({
 	url: '/campaigns'
@@ -31,6 +33,8 @@ $.ajax({
 			campaignImages.push(campaign.image);
 			sponsors.push(campaign.sponsor);
 			sponsorImages.push(campaign.sponsorimage);
+			hashtagColors.push(campaign.hashtagcolor);
+			backgroundColors.push(campaign.backgroundcolor);
 		})
 	})
   });
@@ -112,12 +116,20 @@ window.onload = function()
 	var campImage = document.getElementById("campaign-image");
 	var sponsorImage = document.getElementById("sponsor-image");
 	var sponsorNameDiv = document.getElementById("sponsor-name");
+	var actualHashtag = document.getElementById(tweetedHashtags[0]);
+	var campaignContainer = document.getElementById("campaign-container");
+	var learnMoreButton = document.getElementById("learn-more-button");
+	var donateButton = document.getElementById("donate-button");
 
 	campTitleDiv.innerHTML = hashtags[hashtagIndex] + " Campaign";
 	campTextDiv.innerHTML = campaignTexts[hashtagIndex];
 	campImage.src = campaignImages[hashtagIndex];
 	sponsorImage.src = sponsorImages[hashtagIndex];
 	sponsorNameDiv.innerHTML = sponsors[hashtagIndex];
+	campaignContainer.style.backgroundColor = backgroundColors[hashtagIndex];
+	actualHashtag.style.color = hashtagColors[hashtagIndex];
+	learnMoreButton.style.backgroundColor = hashtagColors[hashtagIndex];
+	donateButton.style.backgroundColor = hashtagColors[hashtagIndex];
 }
 
 
@@ -135,7 +147,7 @@ function makeHashtagsGreen(rawText)
 			if(hashtag.toLowerCase() === word.toLowerCase())
 			{
 				href = "https://twitter.com/hashtag/" + word.substring(1) + "?src=hashtag_click";
-				word = "<a href=" + href + String.raw`" dir="ltr" role="link" data-focusable="true" class="css-4rbku5 css-18t94o4 css-16my406 green-tweet r-1loqt21 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0 plain-text">` + word + String.raw`</a>`;
+				word = "<a href=" + href + String.raw`" id = "` + hashtag + `" dir="ltr" role="link" data-focusable="true" class="css-4rbku5 css-18t94o4 css-16my406 green-tweet r-1loqt21 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0 plain-text">` + word + String.raw`</a>`;
 				tweetedHashtags.push(hashtag);
 			}
 		})
@@ -409,7 +421,7 @@ function makeHashtagsGreen(rawText)
 
 <!-- Campaign Embed -->
 <div id = "campaign-container" class="campaign-container">
-	<div class="main-flex-box">
+	<div id = "main-flex-box" class="main-flex-box">
 		<div class="flex-1">
 			<div id ="title-with-hashtag" class="title">#ClimateChange Campaign</div>
 			<div class="blurb-flex-box">
@@ -421,10 +433,10 @@ function makeHashtagsGreen(rawText)
 				</div>
 			</div>
 			<div class="button-container">
-				<button class="button-styling">Learn More</button>
+				<button id="learn-more-button" class="button-styling">Learn More</button>
 			</div>
 			<div class="button-container">
-				<button class="button-styling">Donate</button>
+				<button id="donate-button" class="button-styling">Donate</button>
 			</div>
 			<div class="disclaimer-container">
 				<p class="disclaimer-text">100% of donations will go to this campaign.</p>
