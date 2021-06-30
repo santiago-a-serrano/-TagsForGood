@@ -1,4 +1,4 @@
-Twitter feature developed as part of the #TakeFlight technical challenge of #EarlyBird21.
+Twitter feature developed as part of the #TakeFlight technical challenge of #EarlyBird21. Campaign donation feature allows users to start and donate to different campaigns all in the Twitter platform.
 
 In order to see our prototype of #TagsForGood, please go to the Home directory of the server, since code is in index.html
 
